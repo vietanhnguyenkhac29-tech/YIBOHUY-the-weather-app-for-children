@@ -1,0 +1,35 @@
+{
+  "name": "Yibohuy - Dự Báo Thời Tiết",
+  "short_name": "Yibohuy",
+  "description": "Trang web thời tiết dành cho các bạn nhỏ",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#EEF9FF",
+  "theme_color": "#FFD93D",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["weather", "education"],
+  "shortcuts": [
+    {
+      "name": "Tìm kiếm thời tiết",
+      "short_name": "Tìm kiếm",
+      "url": "/index.html?page=search",
+      "description": "Tìm thời tiết thành phố bất kỳ"
+    }
+  ]
+}

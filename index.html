@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Yibohuy ☀️ Dự Báo Thời Tiết</title>
+
+  <!-- ===== PWA ===== -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#FFD93D" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Yibohuy" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="Yibohuy" />
+
+  <!-- ===== SEO / Social ===== -->
+  <meta name="description" content="Dự báo thời tiết vui nhộn dành cho các bạn nhỏ — miễn phí, chính xác!" />
+  <meta name="color-scheme" content="light" />
+
+  <!-- ===== Safe area for iPhone notch / Dynamic Island ===== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <button class="pwa-install-btn" id="pwa-install-btn">Cài ngay</button>
+    <button class="pwa-banner-close" id="pwa-banner-close">✕</button>
+  </div>
+ 
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-sun">☀️</span>
+      <span class="logo-text">Yibohuy</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" class="nav-link active" data-page="home">🏠 Trang Chủ</a></li>
+      <li><a href="#" class="nav-link" data-page="learn">📚 Học Thời Tiết</a></li>
+      <li><a href="#" class="nav-link" data-page="search">🔍 Tìm Kiếm</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <button class="nav-install-btn" id="pwa-install-btn" style="display:none" title="Cài app về máy">
+      📲 Cài App
+    </button>
+  </nav>
+
+  <!-- ===== PAGES ===== -->
+  <main>
+
+    <!-- ===== HOME PAGE ===== -->
+    <section class="page active" id="page-home">
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-clouds">
+          <div class="cloud cloud-1">☁️</div>
+          <div class="cloud cloud-2">⛅</div>
+          <div class="cloud cloud-3">☁️</div>
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title">Chào mừng đến<br><span>Yibohuy!</span></h1>
+          <p class="hero-sub">Khám phá thời tiết mỗi ngày cùng mình nào! 🌈</p>
+          <button class="btn-hero" id="btn-search-hero">Xem thời tiết ngay ⚡</button>
+        </div>
+        <div class="hero-mascot">
+          <div class="mascot-sun" id="mascot">
+            <div class="sun-face">
+              <div class="sun-eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+              </div>
+              <div class="sun-mouth">😊</div>
+            </div>
+            <div class="sun-rays">
+              <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+              <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+              <div class="ray"></div><div class="ray"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Weather Card (auto loads Hanoi) -->
+      <div class="section-container">
+        <h2 class="section-title">⛅ Thời Tiết Hôm Nay</h2>
+        <div class="current-weather-card" id="home-weather-card">
+          <div class="loading-anim">
+            <div class="loader-emoji">🌤️</div>
+            <p>Đang tải thời tiết...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5-Day Forecast -->
+      <div class="section-container">
+        <h2 class="section-title">📅 Dự Báo 5 Ngày Tới</h2>
+        <div class="forecast-row" id="home-forecast"></div>
+      </div>
+
+      <!-- Fun Facts -->
+      <div class="section-container">
+        <h2 class="section-title">💡 Bạn Có Biết?</h2>
+        <div class="facts-grid">
+          <div class="fact-card" style="--clr:#FFD93D">
+            <div class="fact-icon">⚡</div>
+            <p>Sét có thể nóng hơn bề mặt mặt trời 5 lần!</p>
+          </div>
+          <div class="fact-card" style="--clr:#6BCB77">
+            <div class="fact-icon">🌧️</div>
+            <p>Mỗi đám mây có thể chứa hàng tấn nước!</p>
+          </div>
+          <div class="fact-card" style="--clr:#4D96FF">
+            <div class="fact-icon">🌈</div>
+            <p>Cầu vồng thực ra là một vòng tròn đầy đủ!</p>
+          </div>
+          <div class="fact-card" style="--clr:#FF6B6B">
+            <div class="fact-icon">❄️</div>
+            <p>Không có hai bông tuyết nào giống nhau nhau hoàn toàn!</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== LEARN PAGE ===== -->
+    <section class="page" id="page-learn">
+
+      <div class="learn-hero">
+        <h1>📚 Học Về Thời Tiết</h1>
+        <p>Cùng khám phá thế giới thời tiết kỳ diệu nhé! 🌍</p>
+      </div>
+
+      <!-- Weather Types -->
+      <div class="section-container">
+        <h2 class="section-title">🌤️ Các Loại Thời Tiết</h2>
+        <div class="learn-cards-grid">
+          <div class="learn-card" onclick="openModal('sunny')">
+            <div class="learn-card-icon">☀️</div>
+            <h3>Trời Nắng</h3>
+            <p>Ngày đẹp để vui chơi!</p>
+            <span class="learn-tap">Nhấn để học thêm →</span>
+          </div>
+          <div class="learn-card" onclick="openModal('cloudy')">
+            <div class="learn-card-icon">☁️</div>
+            <h3>Có Mây</h3>
+            <p>Mây như bông bồng bềnh!</p>
+            <span class="learn-tap">Nhấn để học thêm →</span>
+          </div>
+          <div class="learn-card" onclick="openModal('rainy')">
+            <div class="learn-card-icon">🌧️</div>
+            <h3>Trời Mưa</h3>
+            <p>Mưa tưới cây xanh tươi!</p>
+            <span class="learn-tap">Nhấn để học thêm →</span>
+          </div>
+          <div class="learn-card" onclick="openModal('thunder')">
+            <div class="learn-card-icon">⛈️</div>
+            <h3>Dông Bão</h3>
+            <p>Sấm sét rất mạnh!</p>
+            <span class="learn-tap">Nhấn để học thêm →</span>
+          </div>
+          <div class="learn-card" onclick="openModal('snow')">
+            <div class="learn-card-icon">❄️</div>
+            <h3>Tuyết Rơi</h3>
+            <p>Tuyết trắng như bông!</p>
+            <span class="learn-tap">Nhấn để học thêm →</span>
+          </div>
+          <div class="learn-card" onclick="openModal('rainbow')">
+            <div class="learn-card-icon">🌈</div>
+            <h3>Cầu Vồng</h3>
+            <p>7 màu sắc lung linh!</p>
+            <span class="learn-tap">Nhấn để học thêm →</span>
+          </div>
+          <div class="learn-card" onclick="openModal('wind')">
+            <div class="learn-card-icon">💨</div>
+            <h3>Gió Thổi</h3>
+            <p>Gió mang hơi mát!</p>
+            <span class="learn-tap">Nhấn để học thêm →</span>
+          </div>
+          <div class="learn-card" onclick="openModal('fog')">
+            <div class="learn-card-icon">🌫️</div>
+            <h3>Sương Mù</h3>
+            <p>Sương như tấm màn mỏng!</p>
+            <span class="learn-tap">Nhấn để học thêm →</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Water Cycle -->
+      <div class="section-container">
+        <h2 class="section-title">💧 Vòng Tuần Hoàn Nước</h2>
+        <div class="water-cycle-card">
+          <div class="cycle-steps">
+            <div class="cycle-step">
+              <div class="step-icon">☀️</div>
+              <div class="step-arrow">→</div>
+              <p>1. Bay Hơi</p>
+            </div>
+            <div class="cycle-step">
+              <div class="step-icon">☁️</div>
+              <div class="step-arrow">→</div>
+              <p>2. Ngưng Tụ</p>
+            </div>
+            <div class="cycle-step">
+              <div class="step-icon">🌧️</div>
+              <div class="step-arrow">→</div>
+              <p>3. Mưa Rơi</p>
+            </div>
+            <div class="cycle-step">
+              <div class="step-icon">🌊</div>
+              <div class="step-arrow">↩️</div>
+              <p>4. Tích Trữ</p>
+            </div>
+          </div>
+          <p class="cycle-desc">Nước bốc hơi lên trời, tạo thành mây, rồi mưa xuống, và lại bắt đầu lại! 🔄</p>
+        </div>
+      </div>
+
+      <!-- Quiz -->
+      <div class="section-container">
+        <h2 class="section-title">🎮 Trò Chơi Đoán Thời Tiết</h2>
+        <div class="quiz-box" id="quiz-box">
+          <!-- filled by JS -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== SEARCH PAGE ===== -->
+    <section class="page" id="page-search">
+
+      <div class="search-hero">
+        <h1>🔍 Tìm Kiếm Thời Tiết</h1>
+        <p>Nhập tên thành phố để xem thời tiết nào! 🌍</p>
+        <div class="search-bar-wrap">
+          <input type="text" id="city-input" class="city-input" placeholder="Ví dụ: Hà Nội, Sài Gòn, Đà Nẵng..." />
+          <button class="btn-search" id="btn-search">🔍 Tìm</button>
+        </div>
+        <div class="quick-cities">
+          <span class="city-chip" data-city="Hanoi">🏙️ Hà Nội</span>
+          <span class="city-chip" data-city="Ho Chi Minh City">🌆 Sài Gòn</span>
+          <span class="city-chip" data-city="Da Nang">🏖️ Đà Nẵng</span>
+          <span class="city-chip" data-city="Hue">🌸 Huế</span>
+          <span class="city-chip" data-city="Can Tho">🌴 Cần Thơ</span>
+          <span class="city-chip" data-city="Tokyo">🗼 Tokyo</span>
+          <span class="city-chip" data-city="London">🎡 London</span>
+          <span class="city-chip" data-city="Paris">🗼 Paris</span>
+        </div>
+      </div>
+
+      <!-- Search Result -->
+      <div class="section-container" id="search-result-section" style="display:none">
+        <div class="result-card" id="search-result-card"></div>
+        <div class="result-hourly">
+          <h3>🕐 Dự Báo Từng Giờ</h3>
+          <div class="hourly-scroll" id="hourly-scroll"></div>
+        </div>
+        <div class="result-forecast">
+          <h3>📅 Dự Báo 5 Ngày</h3>
+          <div class="forecast-row" id="search-forecast"></div>
+        </div>
+        <div class="result-details">
+          <h3>📊 Chi Tiết Thời Tiết</h3>
+          <div class="details-grid" id="details-grid"></div>
+        </div>
+      </div>
+
+      <div id="search-error" class="search-error" style="display:none">
+        <div class="error-emoji">😵</div>
+        <p>Ôi không tìm thấy thành phố này! Thử lại nhé 🙏</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+    <div class="modal-box" id="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-content" id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- FLOATING PARTICLES -->
+  <div class="particles" id="particles"></div>
+
+  <!-- BOTTOM NAV (mobile only) -->
+  <nav class="bottom-nav" id="bottom-nav">
+    <a href="#" class="bottom-nav-item active" data-page="home">
+      <span class="bottom-nav-icon">🏠</span>
+      <span class="bottom-nav-label">Trang Chủ</span>
+    </a>
+    <a href="#" class="bottom-nav-item" data-page="learn">
+      <span class="bottom-nav-icon">📚</span>
+      <span class="bottom-nav-label">Học Tập</span>
+    </a>
+    <a href="#" class="bottom-nav-item" data-page="search">
+      <span class="bottom-nav-icon">🔍</span>
+      <span class="bottom-nav-label">Tìm Kiếm</span>
+    </a>
+  </nav>
+
+  <footer class="footer">
+    <p>☀️ <strong>Yibohuy</strong> — Trang web thời tiết dành cho các bạn nhỏ 🌈</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
