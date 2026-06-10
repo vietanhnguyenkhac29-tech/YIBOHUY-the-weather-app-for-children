@@ -4,6 +4,7 @@
 
 ## Giới thiệu
 **Yibohuy** là trang web hiển thị **thời tiết hiện tại**, **dự báo theo giờ (24h)** và **dự báo 5 ngày** dựa trên dữ liệu công khai.
+link : https://vietanhnguyenkhac29-tech.github.io/YIBOHUY-the-weather-app-for-children/
 
 Ngoài phần dự báo, trang còn có:
 - **Học về thời tiết**: các thẻ kiến thức tương tác (nắng, mây, mưa, dông bão, tuyết, cầu vồng, gió, sương mù).
